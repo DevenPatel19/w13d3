@@ -45,17 +45,12 @@ class SLL {
         const newNode = new ListNode(data);
 
         // edge case: how do we handle an empty list
-        if (!this.head) {
-            this.head = newNode;
-            return this;
-        }
-
         // pointer of the newNode to the original head
         newNode.next = this.head;
         // reassign the head
         this.head = newNode;
         return this;
-    } // Great job! You got this!!
+    }
 
     /**
      * Removes the first node of this list.
@@ -64,10 +59,12 @@ class SLL {
      * @returns {any} The data from the removed node.
      */
     removeHead() {
+        if (!this.head) return;
         // reassign the head
-        const removeData = this.head.data; //Get the data
+        const oldHead = this.head; //Get the data
         this.head = this.head.next; // update the head
-        return removeData; // return the removed data
+        oldHead.next = null;
+        return oldHead.data; // return the removed data
     }
 
     //given
