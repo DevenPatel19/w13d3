@@ -41,14 +41,15 @@ class SLL {
      * @returns {SinglyLinkedList} This list.
      */
     insertAtFront(data) {
+        // instantiate the ListNode with data
+        const newNode = new ListNode(data);
+
         // edge case: how do we handle an empty list
         if (!this.head) {
             this.head = newNode;
             return this;
         }
 
-        // instantiate the ListNode with data
-        const newNode = new ListNode(data);
         // pointer of the newNode to the original head
         newNode.next = this.head;
         // reassign the head
